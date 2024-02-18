@@ -1,4 +1,4 @@
-from user_repository.db_api.database import db
+from db_api.database import db
 
 
 class UserData(db.Model):
@@ -17,6 +17,14 @@ class UserData(db.Model):
         self.address = json_data.get('address')
         self.biography = json_data.get('biography')
 
+    def update(self, json_data):
+        self.first_name = json_data.get('first_name', self.first_name)
+        self.family_name = json_data.get('family_name', self.family_name)
+        self.age = json_data.get('age', self.age)
+        self.job = json_data.get('job', self.job)
+        self.address = json_data.get('address', self.address)
+        self.biography = json_data.get('biography', self.biography)
+        
     def json(self):
         return {
             'first_name': self.first_name,

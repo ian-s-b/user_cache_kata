@@ -4,8 +4,8 @@ from flask import Flask
 from flask_migrate import Migrate
 from flask_restful import Api
 
-from user_repository.db_api.database import db
-from user_repository.db_api.resources import UserDataResource
+from db_api.database import db
+from db_api.resources import UserDataResource
 
 app = Flask(__name__)
 

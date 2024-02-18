@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-
+import json
 
 @dataclass(frozen=True)
 class User:
@@ -9,3 +9,6 @@ class User:
     job: str
     address: str
     biography: str
+
+    def to_json(self):
+        return json.dumps(self.__dict__)

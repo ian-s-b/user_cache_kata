@@ -6,8 +6,8 @@ from user_repository.user_database import UserDatabase, MockUserDatabase
 
 
 class UserRepository:
-    def __init__(self, _cache: UserCache = DictUserCache(), database: UserDatabase = MockUserDatabase()):
-        self._cache = _cache
+    def __init__(self, cache: UserCache = DictUserCache(), database: UserDatabase = MockUserDatabase()):
+        self._cache = cache
         self._database = database
 
     def get_cache(self) -> UserCache:
@@ -18,7 +18,7 @@ class UserRepository:
 
     def get_user(self, user_id: Any) -> Optional[User]:
         cached_user = self._cache.get_user(user_id)
-        if cached_user:
+        if cached_user is not None:
             return cached_user
         database_user = self._database.get_user(user_id)
         if database_user:

@@ -55,6 +55,7 @@ class DictUserCache(UserCache):
             self._cache[new_user_id] = user
         elif self._is_user_in_cache(user_id):
             if user_id == new_user_id or not self._is_user_in_cache(new_user_id):
+                self.delete_user(user_id)
                 self._cache[new_user_id] = user
 
     def delete_user(self, user_id) -> None:
