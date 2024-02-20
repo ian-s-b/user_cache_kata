@@ -25,6 +25,27 @@ a same User several times in a row.
 3. The "db_api" module was created to test the user_cache with a more real scenario with a Flask based api and a SQLite database.
 4. Install the required python modules with the requirements.txt file.
 
+## Database initialization
+If you want to use the "db_api" application, you'll have to initialize the database by doing its migrations first.
+
+To do so, you can use the scripts on the "db_api/database_scripts" folder.
+
+First, go inside the db_api, then do one of the following commands:
+
+To start the database:
+```
+./database_scripts/start_db.sh
+```
+To restart the database (by deleting its contents):
+```
+./database_scripts/restart_db.sh
+```
+To delete the database:
+```
+./database_scripts/delete_db.sh
+```
+
+
 ## Execution
 #### 1. To run the tests, go to a terminal and run:
 ```
